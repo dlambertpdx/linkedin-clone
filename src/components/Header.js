@@ -17,6 +17,40 @@ const Header = () => {
             <img src='/images/search-icon.svg' alt='search icon' />
           </SearchIcon>
         </Search>
+        <Nav>
+          <NavListWrap>
+            <NavList className='active'>
+              <a>
+                <img src='/images/nav-home.svg' alt='Nav Home' />
+                <span>Home</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src='/images/nav-network.svg' alt='Nav Network' />
+                <span>My Network</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src='/images/nav-jobs.svg' alt='Nav Jobs' />
+                <span>Jobs</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src='/images/nav-messaging.svg' alt='Nav Messaging' />
+                <span>Messaging</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src='/images/nav-notifications.svg' alt='Nav Notifications' />
+                <span>Notifications</span>
+              </a>
+            </NavList>
+          </NavListWrap>
+        </Nav>
       </Content>
     </Container>
   );
@@ -79,6 +113,72 @@ const SearchIcon = styled.div`
   pointer-events: none;
   justify-content: center;
   align-items: center;
+`;
+
+const Nav = styled.nav`
+  margin-left: auto;
+  display: block;
+  @media (max-width: 768px) {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: white;
+    width: 100%;
+  }
+`;
+
+const NavListWrap = styled.ul`
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+
+  .active {
+    span:after {
+      content: '';
+      transform: scaleX(1);
+      border-bottom: 2px solid var(--white, #fff);
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      transition: transform 0.2s ease-in-out;
+      width: 100%;
+      border-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+`;
+const NavList = styled.li`
+  display: flex;
+  align-items: center;
+  a {
+    align-items: center;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 400;
+    justify-content: center;
+    line-height: 1.5;
+    min-height: 42px;
+    min-width: 80px;
+    position: relative;
+    text-decoration: none;
+    span {
+      color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: 786px) {
+      min-width: 70px;
+    }
+  }
+  &:hover,
+  &:active {
+    a {
+      span {
+        color: rgba(0, 0, 0, 0.9);
+      }
+    }
+  }
 `;
 
 export default Header;
